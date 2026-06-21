@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #e0e5ec;
+  --bg-card: #e0e5ec;
+  --light-shadow: #ffffff;
+  --dark-shadow: #a3b1c6;
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+  --accent: #5b8def;
+  --accent-secondary: #7f5af0;
+  --neu-raised: 8px 8px 16px #a3b1c6, -8px -8px 16px #ffffff;
+  --neu-pressed: inset 8px 8px 16px #a3b1c6, inset -8px -8px 16px #ffffff;
+  --neu-raised-sm: 4px 4px 8px #a3b1c6, -4px -4px 8px #ffffff;
+  --neu-pressed-sm: inset 4px 4px 8px #a3b1c6, inset -4px -4px 8px #ffffff;
+  --neu-raised-lg: 12px 12px 24px #a3b1c6, -12px -12px 24px #ffffff;
+  --neu-pressed-lg: inset 12px 12px 24px #a3b1c6, inset -12px -12px 24px #ffffff;
+  --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark {
+  --bg: #1a1e26;
+  --bg-card: #1e232b;
+  --light-shadow: #282e38;
+  --dark-shadow: #0e1117;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --accent: #5b8def;
+  --accent-secondary: #7f5af0;
+  --neu-raised: 8px 8px 16px #0e1117, -8px -8px 16px #282e38;
+  --neu-pressed: inset 8px 8px 16px #0e1117, inset -8px -8px 16px #282e38;
+  --neu-raised-sm: 4px 4px 8px #0e1117, -4px -4px 8px #282e38;
+  --neu-pressed-sm: inset 4px 4px 8px #0e1117, inset -4px -4px 8px #282e38;
+  --neu-raised-lg: 12px 12px 24px #0e1117, -12px -12px 24px #282e38;
+  --neu-pressed-lg: inset 12px 12px 24px #0e1117, inset -12px -12px 24px #282e38;
+}
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --color-bg: var(--bg);
+  --color-bg-card: var(--bg-card);
+  --color-light-shadow: var(--light-shadow);
+  --color-dark-shadow: var(--dark-shadow);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  transition: background var(--transition), color var(--transition);
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dark-shadow);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+.neu-raised {
+  box-shadow: var(--neu-raised);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.neu-pressed {
+  box-shadow: var(--neu-pressed);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.neu-raised-sm {
+  box-shadow: var(--neu-raised-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.neu-pressed-sm {
+  box-shadow: var(--neu-pressed-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.neu-raised-lg {
+  box-shadow: var(--neu-raised-lg);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.neu-pressed-lg {
+  box-shadow: var(--neu-pressed-lg);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.neu-card {
+  background: var(--bg-card);
+  border-radius: 20px;
+  box-shadow: var(--neu-raised);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.neu-card:hover {
+  box-shadow: 12px 12px 24px var(--dark-shadow), -12px -12px 24px var(--light-shadow);
+  transform: translateY(-4px);
+}
+
+.neu-input {
+  background: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--neu-pressed-sm);
+  border: none;
+  outline: none;
+  transition: box-shadow var(--transition);
+}
+
+.neu-input:focus {
+  box-shadow: var(--neu-pressed);
+}
+
+.neu-btn {
+  background: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--neu-raised-sm);
+  border: none;
+  cursor: pointer;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.neu-btn:hover {
+  box-shadow: var(--neu-raised);
+  transform: translateY(-2px);
+}
+
+.neu-btn:active {
+  box-shadow: var(--neu-pressed-sm);
+  transform: translateY(0);
+}
+
+.neu-circle {
+  background: var(--bg-card);
+  border-radius: 50%;
+  box-shadow: var(--neu-raised-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.neu-circle:hover {
+  box-shadow: var(--neu-raised);
+  transform: translateY(-2px);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ping-slow {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.5s ease-out forwards;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
