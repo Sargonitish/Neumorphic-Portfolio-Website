@@ -1,11 +1,16 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig & { turbopack?: { root: string } } = {
+const isProd = process.env.NODE_ENV === "production";
+
+const nextConfig: NextConfig = {
+  output: "export",
+  trailingSlash: true,
+
+  basePath: isProd ? "/Neumorphic-Portfolio-Website" : "",
+  assetPrefix: isProd ? "/Neumorphic-Portfolio-Website/" : "",
+
   images: {
-    formats: ["image/avif", "image/webp"],
-  },
-  turbopack: {
-    root: process.cwd(),
+    unoptimized: true,
   },
 };
 
