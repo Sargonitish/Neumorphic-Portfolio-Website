@@ -6,7 +6,10 @@ export default function LoadingScreen() {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(false), 800);
+    const timer = setTimeout(() => {
+      setVisible(false);
+      window.scrollTo(0, 0);
+    }, 800);
     return () => clearTimeout(timer);
   }, []);
 
