@@ -30,9 +30,6 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      history.scrollRestoration = "manual";
-    }
     const timer = setTimeout(() => setLoading(false), 800);
     return () => clearTimeout(timer);
   }, []);
